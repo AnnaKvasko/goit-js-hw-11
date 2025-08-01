@@ -35,6 +35,7 @@
   display: flex;
   gap: 8px;
   justify-content: center;
+  align-items: center;
   margin-top: 36px;
   margin-bottom: 32px;
 }
@@ -96,7 +97,9 @@
   color: #2e2f42; 
 }
 
-.gallery {
+
+
+/* .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
   gap: 24px; 
@@ -104,72 +107,44 @@
   list-style: none;
   margin: 0 auto;
   max-width: 1200px; 
-}
-
-/* .gallery-item img {
-  width: 360px;    
-  height: 200px;
-  display: block;
-  border-radius: 8px;
-  object-fit: cover;
-  border: 1px solid #808080;
-}
-
-
-.info p {
-  display: inline;
-  margin-right: 12px;
-  font-size: 14px;
-  color: #2e2f42;
-}
-
-.info {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: #2e2f42;
-  background-color: #f8f8f8;
-  border-top: 1px solid #e0e0e0;
-}
-
-.info-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-}
-
-.info-label {
-  font-weight: 500;
-  color: #808080;
-  margin-bottom: 4px;
-}
-
-.info-value {
-  font-weight: 600;
-  color: #2e2f42;
 } */
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 24px; 
-  padding: 0;
-  list-style: none;
-  margin: 0 auto;
-  max-width: 1200px; 
+display: flex;
+flex-wrap: wrap;
+gap: 24px;
+justify-content: center;
+padding: 24px;
+margin: 0 auto;
+list-style: none;
+width: 1200px;
+background: #fff;
 }
 
-.gallery-item {
+
+/* .gallery-item {
   background-color: #fff;
   border: 1px solid #808080;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease-in-out;
+} */
+
+
+.gallery-item {
+  box-sizing: border-box;
+  /* width: calc((100% - 48px) / 3); */
+  width: 360px;
+  background-color: #fff;
+  border: 1px solid #808080;
+  /* border-radius: 8px; */
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+  /* height: 200px; */
 }
+
 
 .gallery-item:hover {
   transform: scale(1.02);
@@ -182,27 +157,106 @@
   object-fit: cover;
 }
 
-.info {
-  padding: 12px 16px;
+/* .info {
+
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
+  align-items: center;
   row-gap: 8px;
+  background-color: #f8f8f8;
+  font-family: 'Montserrat', sans-serif;
+} */
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* відстань між колонками */
+  /* padding: 12px 0; */
   background-color: #f8f8f8;
   font-family: 'Montserrat', sans-serif;
 }
 
-.info p {
+
+/* .info p {
   flex: 1 1 45%;
   font-size: 14px;
   margin: 0;
-  color: #2e2f42;
+  font-family: "Montserrat", sans-serif;
+font-weight: 600;
+font-size: 12px;
+line-height: 1.33;
+letter-spacing: 0.04em;
+color: #2e2f42;
 }
 
 .info p b {
   display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: #808080;
-  margin-bottom: 4px;
+} */
+
+.info p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
 }
+
+.info p b {
+  
+  font-size: 12px;
+  line-height: 2;
+  color: #2e2f42;
+  margin-bottom: 2px;
+}
+
+.info b {
+font-family: "Montserrat", sans-serif;
+font-weight: 600;
+font-size: 12px;
+line-height: 2;
+letter-spacing: 0.04em;
+color: #2e2f42;
+}
+
+.loader {
+  position: relative;
+  width: 64px;
+  height: 60px;
+}
+.loader::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  width: 64px;
+  height: 32px;
+  border-radius: 0 0 50px 50px;
+  animation: move 0.5s linear infinite alternate;
+}
+.loader::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  background: #FF3D00;
+  width: 24px;
+  height: 24px;
+  transform: translateX(-50%) rotate(0deg);
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  100% { transform: translateX(-50%) rotate(360deg)}
+}
+@keyframes move {
+  0% { transform: rotate(10deg)}
+  100% { transform: rotate(-10deg)}
+}
+      
